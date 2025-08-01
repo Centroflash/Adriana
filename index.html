@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conexión Contigo</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #ffdee9, #b5fffc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      overflow: hidden;
+    }
+
+    .contenedor {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 30px;
+      padding: 30px;
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      animation: fadein 1s;
+    }
+
+    .imagen {
+      max-width: 300px;
+      max-height: 300px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: opacity 1s ease-in-out;
+    }
+
+    .mensaje {
+      font-size: 1.8rem;
+      padding: 10px;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <img id="foto" class="imagen" src="foto1.jpg" alt="Foto">
+    <div id="mensaje" class="mensaje">Conectando contigo...</div>
+  </div>
+
+  <script>
+    const mensajes = [
+      "Me gusta verte cada día 💫",
+      "Tu sonrisa es mi conexión favorita 😊",
+      "Eres la mejor parte de mi rutina 🧡",
+      "Hoy también me gustas 😍",
+      "Me encanta hablar contigo 🌟",
+      "Estar conectados me alegra el día ☀️",
+      "Gracias por hacerme sonreír ✨"
+    ];
+
+    const imagenes = [
+      "13.jpg",
+      "17.jpg",
+      "16.jpg",
+      "11.jpg",
+      "12.jpg",
+      "15.jpg",
+      "14.jpg"
+    ];
+
+    let i = 0;
+    const mensajeEl = document.getElementById('mensaje');
+    const fotoEl = document.getElementById('foto');
+
+    setInterval(() => {
+      i = (i + 1) % mensajes.length;
+      mensajeEl.innerHTML = mensajes[i];
+      fotoEl.src = imagenes[i];
+    }, 4000);
+  </script>
+</body>
+</html>
